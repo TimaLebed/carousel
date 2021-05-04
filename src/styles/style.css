@@ -1,0 +1,137 @@
+@import "~normalize.css";
+@import "font.css";
+
+body {
+    font-family: 'Roboto-Regular';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.carousel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+}
+
+.item-container {
+    position: relative;
+    width: 70%;
+    /* max-width: 500px;
+    max-height: 300px; */
+    overflow: hidden;
+}
+
+.item {
+    position: relative;
+    display: none;
+    margin: 0 auto;
+    animation: 0.5s ease-in-out;
+}
+
+.item img {
+    width: 100%;
+}
+
+.active,
+.next {
+    display: block;
+}
+
+.next {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.description {
+    width: 100%;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+/* .project-name {
+    padding: 10px;
+} */
+
+.control {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control.left {
+    left: 0;
+    right: auto;
+}
+
+.control.right {
+    left: auto;
+    right: 0;
+}
+
+.arrow {
+    font-size: 70px;
+    display: block;
+}
+
+.arrow.right {
+    right: 50%;
+}
+
+.to-left {
+    animation-name: left;
+}
+
+.to-right {
+    animation-name: right;
+    animation-direction: reverse;
+}
+
+.from-left {
+    animation-name: left;
+    animation-direction: reverse;
+}
+
+.from-right {
+    animation-name: right;
+}
+
+@keyframes left {
+    from {
+        left: 0;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes right {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0;
+    }
+}
+
