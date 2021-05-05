@@ -84,9 +84,39 @@ function swipe(item) {
         }
       }
     }
-
     e.preventDefault();
-    console.log(distX, distY, elapsedTime);
+  });
+
+  surface.addEventListener('touchstart', (e) => {
+    const touchObj = e.changedTouches[0];
+    startX = touchObj.pageX;
+    startY = touchObj.pageY;
+    startTime = new Date().getTime();
+    e.preventDefault();
+  });
+
+  surface.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+  });
+
+  surface.addEventListener('touchend', (e) => {
+    const touchObj = e.changedTouches[0];
+    distX = touchObj.pageX - startX;
+    distY = touchObj.pageY - startY;
+    elapsedTime = new Date().getTime() - startTime;
+
+    if (elapsedTime <= allowedTime) {
+      if (Math.abs(distX) > thresholdX && Math.abs(distY) < thresholdY) {
+        if (distX > 0) {
+          if (isEnabled) {
+            previousItem(currentItem);
+          }
+        } else if (isEnabled) {
+          nextItem(currentItem);
+        }
+      }
+    }
+    e.preventDefault();
   });
 }
 
