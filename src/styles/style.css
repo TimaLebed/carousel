@@ -135,3 +135,12 @@ body {
     }
 }
 
+@media (max-width: 376px) {
+    .control {
+        display: none;
+    }
+
+    .item-container {
+        width: 95%;
+    }
+}
